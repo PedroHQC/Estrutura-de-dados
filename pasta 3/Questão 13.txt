@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+    float media = 0.0;
+    int quant_alunos, i, j;
+    printf("Existem quantos alunos?\n");
+    scanf("%d", &quant_alunos);
+    float *notas = (float *) calloc(quant_alunos, sizeof(float));
+    for(i = 0; i<quant_alunos; i++)
+    {
+        printf("Digite a nota do aluno numero %d: \n", i+1);
+        scanf("%f", &*(notas+i));
+    }
+    for(j=0; j<quant_alunos;j++)
+    {
+      media = media + *(notas+j);
+    }
+    media = media/quant_alunos;
+    printf("a media eh: %0.2f", media);
+    free(notas);
+    return 0;
+}

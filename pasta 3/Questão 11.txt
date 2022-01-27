@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void ler_vet(int a[],int b)
+{
+    int i ;
+    for(i=0;i<b;i++){
+    printf("Digite o %do elemento\n", i+1);
+    scanf("%d", &a[i]);
+}
+    printf("==========VALORES DO EXEMPLO==========\n");
+
+    for(i=0;i<b;i++){
+        printf("O valor elemento %d eh: %d\n", i+1, *(a+i));
+}
+}
+
+int main(){
+    int i, *p, quantdad;
+    printf("Digite a quantidade de elementos: \n");
+    scanf("%d", &quantdad);
+    p = (int *) malloc(quantdad * sizeof(int));
+    ler_vet(p,quantdad);
+
+    free(p);
+    return 0;
+}

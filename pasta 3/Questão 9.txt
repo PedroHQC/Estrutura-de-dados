@@ -1,0 +1,14 @@
+#include <stdio.h>
+void impressao(int veto[],int mod)
+{
+    int i;
+    for(i=0;i<mod; i++)
+    printf("%d\n", *(veto+i));
+
+}
+int main()
+{
+    int a[10]={2,44,1,5,3,4,3,6,7,21},;
+    impressao(a,10);
+    return 0;
+}

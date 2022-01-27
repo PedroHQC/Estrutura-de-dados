@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+struct dados_aluno
+    {
+    char nome[20];
+    int matricula;
+    char curso[20];
+    };
+
+ main(){
+    int op,op1, i, moderador=0;
+    struct dados_aluno aluno[5];
+    do{
+    printf("=========MENU=========\n""1 - Consultar.\n""2 - Preencher manualmente\n""3 - Sair .\n");
+    scanf("%d", &op);
+    switch(op){
+    case 1:
+        for(i=0;i<5;i++){
+        printf("Aluno %d\n", i);
+        printf("Nome: %s\n", aluno[i].nome);
+        printf("Matricula: %d\n", aluno[i].matricula);
+        printf("Curso: %s\n", aluno[i].curso);}
+    break;
+    case 2:
+        for(i =0; i<5;i++)
+        {
+            printf("Nome do aluno %d: \n", i+1);
+            scanf("%s", &aluno[i].nome[0]);
+            printf("Numero da matricula do aluno %d: \n", i+1);
+            scanf("%d", &aluno[i].matricula);
+            printf("Curso do aluno %d: \n", i+1);
+            scanf("%s", &aluno[i].curso[0]);
+        }
+
+    break;
+    case 3:
+        moderador = -1;
+        break;
+    default:
+        printf("Opção invalida");
+        break;
+    }
+    }
+    while(moderador !=-1);
+    return 0;
+}

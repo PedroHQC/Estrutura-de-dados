@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+
+ main(){
+    int i=1, *p;
+    float j=1.0, *g;
+    char k = 'g', *o;
+    p =&i;
+    g =&j;
+    o =&k;
+    printf("Os valores das variaveis i, j, k sao:%d, %0.2f, %c \n", i,j,k);
+    printf("Os valores que os ponteiros *p, *g, *o estao apontando sao:%d, %0.2f, %c \n", *p,*g,*o);
+    *p = *p + 2;
+    *g = 2.0;
+    *o= 'k';
+    printf("Os novos valores das variaveis i, j, k sao:%d, %0.2f, %c \n", i,j,k);
+    printf("Os novos valores que os ponteiros *p, *g, *o estao apontando sao:%d, %0.2f, %c \n", *p,*g,*o);
+    return 0;
+}

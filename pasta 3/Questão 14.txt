@@ -1,0 +1,217 @@
+#include <stdio.h>
+#include <string.h>
+
+struct contato{
+char nome[20];
+char email[20];
+char rua[30];
+char bairro[30];
+char numero_casa[10];
+char cep[9];
+char cidade[30];
+char estado[20];
+char observacoes[40];
+char ddd[2];
+char numero_telefone[10];
+char nasc_mes[2];
+char nasc_ano[4];
+char nasc_dia[2];
+char pais[15];
+char complemento[30];
+
+
+};
+struct contato agenda[100];
+int aux5 = 0;
+void ordenador(){
+int x,y,r;
+char aux4[20];
+for(x=0;x<=aux5;x++){
+        r = strcmp(agenda[x].nome,agenda[y].nome);
+    for(y=x+1;y<aux5;y++){
+        r = strcmp(agenda[x].nome,agenda[y].nome);
+        if(r>0){
+        strcpy(aux4,agenda[x].nome);
+        strcpy(agenda[x].nome,agenda[y].nome);
+        strcpy(agenda[y].nome,aux4);
+        }
+    }
+}
+}
+
+
+int main(){
+
+    int op, op1, op2, aux, aux2, aux3, g, moderador = 0;
+    char procurador_nome[20], procurador_mes[2], procurador_dia[2];
+    printf("==========MENU==========\n""1 - Abrir agenda.\n""2 - Sair.\n""========================\n""Opcao: ");
+    scanf("%i", &op);
+    switch(op){
+        case 1:{
+            do{
+            ordenador();
+            printf("==========MENU==========\n""O que deseja fazer?\n""1 - Procurar contato.\n""2 - Adicionar contato.\n""3 - Remover contato.\n""4 - Fechar agenda.\n""========================\n""Opcao: ");
+            for(g=0;g<aux5;g++){
+                printf("%s\n", agenda[g].nome);
+            }
+            scanf("%i", &op1);
+            switch(op1){
+                case 1:{
+                    printf("===============MENU===============\n""1 - Procurar por nome.\n""2 - Procurar por mes do aniversario.\n""3 - Procurar por dia e mes de aniversario\n""==================================\n""Opcao:");
+                    scanf("%i", &op2);
+                switch(op2){
+                case 1:{
+                    int i = 0;
+                    printf("Digite o nome desejado: ");
+                    scanf("%s", procurador_nome);
+                    for(i=0;i<100;i++)
+                    {
+                        aux =strcmp(procurador_nome,agenda[i].nome);
+                        if(aux == 0){
+                            printf("==============================\n");
+                            printf("Nome: %s\n", agenda[i].nome);
+                            printf("Data de nascimento: %s/%s/%s\n", agenda[i].nasc_dia,agenda[i].nasc_mes,agenda[i].nasc_ano);
+                            printf("Telefone/E-mail: (%s)%s/%s\n", agenda[i].ddd, agenda[i].numero_telefone, agenda[i].email);
+                            printf("Endereco: %s, %s, %s, Nu:%s\n", agenda[i].cidade, agenda[i].bairro, agenda[i].rua, agenda[i].numero_casa);
+                            printf("Complemento: %s\n", agenda[i].complemento);
+                            printf("Estado: %s, %s\n", agenda[i].estado, agenda[i].pais);
+                            printf("CEP: %s\n", agenda[i].cep);
+                            printf("Observacoes: %s\n", agenda[i].observacoes);
+                            printf("==============================\n");
+                            aux2 = -2001;
+                        }
+                        else if(aux != 0){
+                            aux2++;
+                        }
+
+                    }
+                    if(aux2 > 0)
+                        printf("Nome nao encontrado.\n");
+                }
+                break;
+                case 2:{
+                    int i = 0;
+                    printf("Digite o mes de aniversario desejado: ");
+                    scanf("%s", procurador_mes);
+                    for(i=0;i<100;i++)
+                    {
+                        aux =strcmp(procurador_mes,agenda[i].nasc_mes);
+                        if(aux == 0){
+                            printf("==============================\n");
+                            printf("Nome: %s\n", agenda[i].nome);
+                            printf("Data de nascimento: %s/%s/%s\n", agenda[i].nasc_dia,agenda[i].nasc_mes,agenda[i].nasc_ano);
+                            printf("Telefone/E-mail: (%s)%s/%s\n", agenda[i].ddd, agenda[i].numero_telefone, agenda[i].email);
+                            printf("Endereço: %s, %s, %s, Nu:%s\n", agenda[i].cidade, agenda[i].bairro, agenda[i].rua, agenda[i].numero_casa);
+                            printf("Complemento: %s\n", agenda[i].complemento);
+                            printf("Estado: %s, %s\n", agenda[i].estado, agenda[i].pais);
+                            printf("CEP: %s\n", agenda[i].cep);
+                            printf("Observacoes: %s\n", agenda[i].observacoes);
+                            printf("==============================\n");
+                            aux2 = -2001;
+                        }
+                        else if(aux != 0)
+                            aux2++;
+
+                    }
+                    if(aux2 > 0)
+                        printf("Nenhum contato faz aniversario neste mes.\n");
+                }
+                    break;
+                case 3:{
+                    int i = 0;
+                    printf("Digite o mes de aniversario desejado: ");
+                    scanf("%s", procurador_mes);
+                    printf("Digite o dia de aniversario desejado: ");
+                    scanf("%s", procurador_dia);
+                    for(i=0;i<100;i++)
+                    {
+                        aux =strcmp(procurador_mes,agenda[i].nasc_mes);
+                        if(aux == 0){
+
+                            aux3 = strcmp(procurador_dia, agenda[i].nasc_dia);
+                        if(aux3 == 0){
+                            printf("==============================\n");
+                            printf("Nome: %s\n", agenda[i].nome);
+                            printf("Data de nascimento: %s/%s/%s\n", agenda[i].nasc_dia,agenda[i].nasc_mes,agenda[i].nasc_ano);
+                            printf("Telefone/E-mail: (%s)%s/%s\n", agenda[i].ddd, agenda[i].numero_telefone, agenda[i].email);
+                            printf("Endereço: %s, %s, %s, Nu:%s\n", agenda[i].cidade, agenda[i].bairro, agenda[i].rua, agenda[i].numero_casa);
+                            printf("Complemento: %s\n", agenda[i].complemento);
+                            printf("Estado: %s, %s\n", agenda[i].estado, agenda[i].pais);
+                            printf("CEP: %s\n", agenda[i].cep);
+                            printf("Observacoes: %s\n", agenda[i].observacoes);
+                            printf("==============================\n");
+                            aux2 = -2001;
+                        }
+                        }
+                        else if(aux3 != 0){
+                            aux2++;
+                        }
+
+                    }
+                    if(aux2 > 0)
+                        printf("Nenhum contato faz aniversario neste dia deste mes.\n");
+
+                    break;}
+                }
+                break;
+            }
+            case 2:{
+                char coisa[10];
+
+            gets(coisa);
+
+            printf("%s\n", coisa);
+            printf("Digite as informacoes do novo contato: \n");
+            printf("Nome:");
+            gets(agenda[aux5].nome);
+            printf("==========Data de nascimento==========\n");
+            printf("Dia: ");
+            scanf("%s", agenda[aux5].nasc_dia);
+            printf("Mes: ");
+            scanf("%s", agenda[aux5].nasc_mes);
+            printf("Ano: ");
+            scanf("%s", agenda[aux5].nasc_ano);
+            printf("==========Telefone==========\n");
+            printf("DDD: ");
+            scanf("%s", agenda[aux5].ddd);
+            printf("Numero: ");
+            scanf("%s", agenda[aux5].numero_telefone);
+            printf("==========Endereço==========\n");
+            printf("CEP: ");
+            scanf("%s", agenda[aux5].cep);
+            printf("Pais: ");
+            gets(agenda[aux5].pais);
+            printf("Estado: ");
+            gets(agenda[aux5].estado);
+            printf("Cidade: ");
+            gets(agenda[aux5].cidade);
+            printf("Bairro: ");
+            gets(agenda[aux5].bairro);
+            printf("Rua: ");
+            gets(agenda[aux5].rua);
+            printf("Numero residencial: ");
+            scanf("%s", agenda[aux5].numero_casa);
+            printf("Complemento: ");
+            gets(agenda[aux5].complemento);
+            printf("Observacao especial: ");
+            gets(agenda[aux5].observacoes);
+            printf("CONTATO REGISTRADO!!!\n");
+            aux5++;
+            }
+            break;
+            case 4:{
+            moderador = -1;
+            }
+            break;
+            }
+
+
+        }
+
+
+        while(moderador != -1);
+        }
+
+    }
+    return 0;
+    }

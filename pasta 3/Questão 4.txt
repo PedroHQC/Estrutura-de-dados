@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(){
+    int i, q;
+    float notas[10], menor = 10, maior = 0;
+    printf("Digite as notas dos alunos. \n");
+    for(i = 0; i<10; i++){
+    printf("Aluno %d:",i+1);
+    scanf("%f", &notas[i]);
+    if(maior < notas[i]){
+        maior=notas[i];}
+    else{
+    q=1;
+    }
+
+    if(menor>notas[i]){
+        menor=notas[i];}
+        else
+        q=1;
+    }
+
+    printf("A maior nota e: %0.2f/n""A menor nota e:%0.2f", maior, menor);
+    return 0;
+}

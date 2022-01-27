@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+int main(){
+    int op, moderador = 0, i, mod, valor, k, l, num;
+    char A[6][15], nome[15];
+    do{
+        printf("1 - Procurar nome.\n""2 - Modificar lista.\n""3 - Sair.\n");
+        scanf("%d", &op);
+        switch(op){
+            case (1):
+                l = 0;
+                valor = 3;
+                printf("digite o nome\n");
+                scanf("%s", &nome);
+                for(k=0; k < 6 ; k++){
+                    valor = strcmp(nome, A[k]);
+                    if(valor == 0){
+                        printf("Nome encontrado na lista, esta na posicao de numero %d \n", k+1);
+                        l = 0;
+                    break;}
+                    else if (valor != 0)
+                        l = l + valor;
+                }
+                if(l !=0)
+                    printf("Nome nao encontrado.\n");
+
+
+            break;
+            case (2):
+                printf("Oque deseja fazer?\n""1 - Mudar alguns nomes.\n""2 - Mudar a lista inteira.\n");
+                scanf("%d", &mod);
+                if(mod == 1){
+                    printf("Informe a quantidade de nomes: \n");
+                    scanf("%d", &num);
+                    printf("digite os nomes: \n");
+                    for(i; i < num; i++){
+                        scanf("%s", &A[i]);
+                    }
+                }
+                else if(mod == 2){
+                    printf("digite os nomes: \n");
+                    for(i=0; i< 6; i++){
+                        scanf("%s", &A[i]);
+
+                    }
+                }
+                break;
+            case 3:
+                moderador = -1;
+            break;
+            default:
+                printf("opcao invalida\n");
+                op = 0;
+            break;
+        }
+    }
+    while(moderador != -1);
+return 0;
+}

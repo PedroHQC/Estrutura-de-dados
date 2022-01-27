@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main(){
+    int q_abastecer;
+	float gastos, gasolina = 6.89;
+	printf("Digite a quantidade a abastecer: ");
+	scanf("%d", &q_abastecer);
+	gastos = q_abastecer*gasolina;
+	printf("Os seus gastos com gasolina serão: %0.3f", gastos);
+return 0;
+}
